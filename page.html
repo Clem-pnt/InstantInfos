@@ -85,12 +85,36 @@
     .footer p {
       margin: 0;
     }
+    
+    .tag-filter {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .tag-filter label {
+      margin-right: 10px;
+    }
   </style>
+  <script>
+    function filterArticles(tag) {
+      var posts = document.getElementsByClassName('post');
+      
+      for (var i = 0; i < posts.length; i++) {
+        var post = posts[i];
+        
+        if (tag === 'all' || post.dataset.tags.includes(tag)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="navbar">
     <ul>
-      <li><a href="#">Accueil</a></li>
+      <li><a href="#Accueil">Accueil</a></li>
       <li><a href="#articles">Articles</a></li>
     </ul>
   </div>
@@ -102,40 +126,60 @@
   
   <h1>Les articles</h1>
   
-  <div class="post">
+  <div class="tag-filter">
+    <label for="tag-filter">Filtrer par tag :</label>
+    <select id="tag-filter" onchange="filterArticles(this.value)">
+      <option value="all">Tous</option>
+      <option value="informatique">informatique</option>
+      <option value="géopolitique">Géopolitique</option>
+      <option value="IA">IA</option>
+      <option value="politique">politique</option>
+      <option value="climat">climat</option>
+      <option value="espace">espace</option>
+      <option value="societe">société</option>
+    </select>
+  </div>
+  
+  <div class="post" data-tags="géopolitique">
     <h2><a href="guerre-ukraine.html">La guerre en Ukraine</a></h2>
     <p>Date de publication: 1er juillet 2023</p>
     <p>Un article sur la guerre en Ukraine.</p>
   </div>
   
-  <div class="post">
+  <div class="post" data-tags="informatique IA">
     <h2><a href="intelligence-artificielle.html">L'Intelligence Artificielle (IA)</a></h2>
     <p>Date de publication: 2 juillet 2023</p>
     <p>Un article sur l'Intelligence Artificielle.</p>
   </div>
   
-  <div class="post">
-    <h2><a href="manifestations-reforme-retraites.html">Les manifestations pour la réforme des retraites</a></h2>
+  <div class="post" data-tags="politique societe">
+    <h2><a href="journal/articles/manifestations-reforme-retraites.html">Les manifestations pour la réforme des retraites</a></h2>
     <p>Date de publication: 30 juin 2023</p>
     <p>Un article sur les manifestations pour la réforme des retraites.</p>
   </div>
   
-  <div class="post">
+  <div class="post" data-tags="climat">
     <h2><a href="feux-foret-canada.html">Les feux de fôret au Canada</a></h2>
     <p>Date de publication: 30 juin 2023</p>
     <p>Un article sur les feux de fôret au Canada.</p>
   </div>
   
-  <div class="post">
+  <div class="post" data-tags="informatique societe">
     <h2><a href="impact-VR-education.html">L'impact de la réalité virtuelle sur l'éducation</a></h2>
     <p>Date de publication: 30 juin 2023</p>
     <p>Un article sur l'impact de la réalité virtuelle sur l'éducation.</p>
   </div>
   
-  <div class="post">
-    <h2><a href="exploration-spatiale.html</a></h2>
+  <div class="post" data-tags="espace">
+    <h2><a href="exploration-spatiale.html">La conquête spaciale</a></h2>
     <p>Date de publication: 30 juin 2023</p>
     <p>Un article sur la conquête spaciale.</p>
+  </div>
+  
+  <div class="post" data-tags="societe">
+    <h2><a href="impact-impression-3D-manufacture.html">L'impact de l'impression 3D sur l'industrie manufacturière</a></h2>
+    <p>Date de publication: 30 juin 2023</p>
+    <p>Un article sur l'impact de l'impression 3D sur l'industrie manufacturière.</p>
   </div>
   
   <div id="articles"></div>
