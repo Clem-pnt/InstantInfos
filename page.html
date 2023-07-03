@@ -94,22 +94,60 @@
     .tag-filter label {
       margin-right: 10px;
     }
-  </style>
-  <script>
-    function filterArticles(tag) {
-      var posts = document.getElementsByClassName('post');
-      
-      for (var i = 0; i < posts.length; i++) {
-        var post = posts[i];
-        
-        if (tag === 'all' || post.dataset.tags.includes(tag)) {
-          post.style.display = 'block';
-        } else {
-          post.style.display = 'none';
-        }
-      }
+    
+    .comments {
+      margin-top: 50px;
     }
-  </script>
+    
+    .comments h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .comments h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    #comment-list {
+      margin-bottom: 20px;
+    }
+    
+    .comment {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .comment h4 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+    
+    .comment p {
+      margin: 0;
+      font-size: 14px;
+    }
+    
+    #name-input,
+    #comment-input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    
+    #comment-input {
+      height: 80px;
+    }
+    
+    #comment-form button {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <div class="navbar">
@@ -171,21 +209,80 @@
   </div>
   
   <div class="post" data-tags="espace">
-    <h2><a href="exploration-spatiale.html">La conquête spaciale</a></h2>
-    <p>Date de publication: 30 juin 2023</p>
-    <p>Un article sur la conquête spaciale.</p>
+    <h2><a href="nouvelle-mission-mars.html">Nouvelle mission d'exploration sur Mars</a></h2>
+    <p>Date de publication: 29 juin 2023</p>
+    <p>Un article sur une nouvelle mission d'exploration sur Mars.</p>
   </div>
   
   <div class="post" data-tags="societe">
-    <h2><a href="impact-impression-3D-manufacture.html">L'impact de l'impression 3D sur l'industrie manufacturière</a></h2>
-    <p>Date de publication: 30 juin 2023</p>
-    <p>Un article sur l'impact de l'impression 3D sur l'industrie manufacturière.</p>
+    <h2><a href="evolution-travail-temps-pandemie.html">L'évolution du travail à temps partiel pendant la pandémie</a></h2>
+    <p>Date de publication: 29 juin 2023</p>
+    <p>Un article sur l'évolution du travail à temps partiel pendant la pandémie.</p>
   </div>
   
   <div id="articles"></div>
   
-  <div class="footer">
-    <p>© 2023 Mon Journal. Tous droits réservés. | Contact : <a href="mailto:pinot.clement.pro@gmail.com">pinot.clement.pro@gmail.com</a></p>
+  <div class="comments">
+    <h2>Commentaires</h2>
+    
+    <div id="comment-list">
+      <!-- Comment list will be dynamically populated -->
+    </div>
+    
+    <h3>Laissez un commentaire :</h3>
+    <form id="comment-form">
+      <input type="text" id="name-input" placeholder="Votre nom" required>
+      <textarea id="comment-input" placeholder="Votre commentaire" required></textarea>
+      <button type="submit">Publier</button>
+    </form>
   </div>
+  
+  <div class="footer">
+    <p>© 2023 Journal. Tous droits réservés.</p>
+  </div>
+  
+  <script>
+    // Function to handle form submission
+    function submitComment(event) {
+      event.preventDefault();
+      
+      // Get input values
+      var name = document.getElementById('name-input').value;
+      var comment = document.getElementById('comment-input').value;
+      
+      // Create new comment element
+      var newComment = document.createElement('div');
+      newComment.className = 'comment';
+      newComment.innerHTML = '<h4>' + name + '</h4><p>' + comment + '</p>';
+      
+      // Append new comment to the comment list
+      var commentList = document.getElementById('comment-list');
+      commentList.appendChild(newComment);
+      
+      // Clear form inputs
+      document.getElementById('name-input').value = '';
+      document.getElementById('comment-input').value = '';
+    }
+    
+    // Add event listener to the comment form
+    var commentForm = document.getElementById('comment-form');
+    commentForm.addEventListener('submit', submitComment);
+    
+    // Function to filter articles by tag
+    function filterArticles(tag) {
+      var posts = document.getElementsByClassName('post');
+      for (var i = 0; i < posts.length; i++) {
+        var post = posts[i];
+        var tags = post.getAttribute('data-tags').split(' ');
+        
+        if (tag === 'all' || tags.includes(tag)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      }
+    }
+  </script>
+  <br/>
 </body>
 </html>
