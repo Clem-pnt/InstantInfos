@@ -95,8 +95,58 @@
       margin-right: 10px;
     }
     
+    .comments {
+      margin-top: 50px;
+    }
     
+    .comments h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
     
+    .comments h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    #comment-list {
+      margin-bottom: 20px;
+    }
+    
+    .comment {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .comment h4 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+    
+    .comment p {
+      margin: 0;
+      font-size: 14px;
+    }
+    
+    #name-input,
+    #comment-input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    
+    #comment-input {
+      height: 80px;
+    }
+    
+    #comment-form button {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -131,43 +181,55 @@
   <div class="post" data-tags="géopolitique">
     <h2><a href="guerre-ukraine.html">La guerre en Ukraine</a></h2>
     <p>Date de publication: 1er juillet 2023</p>
-    <p>Un article sur la guerre en Ukraine.</p>
+    <p><i>Plongez au cœur du conflit en Ukraine et explorez ses répercussions.</i></p>
   </div>
   
   <div class="post" data-tags="informatique IA">
     <h2><a href="intelligence-artificielle.html">L'Intelligence Artificielle (IA)</a></h2>
     <p>Date de publication: 2 juillet 2023</p>
-    <p>Un article sur l'Intelligence Artificielle.</p>
+    <p> <i>Découvrez les avancées fascinantes de l'Intelligence Artificielle et son impact sur notre sociétés.</i></p>
   </div>
   
   <div class="post" data-tags="politique societe">
     <h2><a href="journal/articles/manifestations-reforme-retraites.html">Les manifestations pour la réforme des retraites</a></h2>
     <p>Date de publication: 30 juin 2023</p>
-    <p>Un article sur les manifestations pour la réforme des retraites.</p>
+    <p><i>Plongez dans les mouvements de protestation qui secouent le débat sur la réforme des retraites.</i></p>
   </div>
   
   <div class="post" data-tags="climat">
     <h2><a href="feux-foret-canada.html">Les feux de fôret au Canada</a></h2>
     <p>Date de publication: 30 juin 2023</p>
-    <p>Un article sur les feux de fôret au Canada.</p>
+    <p><i>Explorez les ravages des terribles incendies de forêt qui font rage au Canada.</i></p>
   </div>
   
   <div class="post" data-tags="informatique societe">
     <h2><a href="impact-VR-education.html">L'impact de la réalité virtuelle sur l'éducation</a></h2>
     <p>Date de publication: 30 juin 2023</p>
-    <p>Un article sur l'impact de la réalité virtuelle sur l'éducation.</p>
+    <p><i>Laissez-vous surprendre par l'influence transformative de la réalité virtuelle dans le domaine de l'éducation.</i></p>
   </div>
   
   <div class="post" data-tags="espace">
     <h2><a href="exploration-spatiale.html">L'exploration spatiale</a></h2>
     <p>Date de publication: 29 juin 2023</p>
-    <p>Un article sur l'exploration spatiale.</p>
+    <p><i>Voyagez dans les étoiles et découvrez les dernières avancées de l'exploration spatiale.</i></p>
   </div>
   
   <div class="post" data-tags="societe">
     <h2><a href="impact-impression-3D-manufacture.html">L'impact de l'impression 3D sur l'industrie manufacturière</a></h2>
     <p>Date de publication: 29 juin 2023</p>
-    <p>Un article sur l'impact de l'impression 3D sur l'industrie manufacturière.</p>
+    <p><i>Plongez dans la révolution de l'impression 3D et son impact sur l'industrie manufacturière.</i></p>
+  </div>
+  
+  <div class="post" data-tags="climat societe ">
+    <h2><a href="energies-renouvlabes.html">Les énergies renouvlabes</a></h2>
+    <p>Date de publication: 29 juin 2023</p>
+    <p><i>Explorez les solutions énergétiques durables qui façonnent notre avenir.</i></p>
+  </div>
+  
+  <div class="post" data-tags="informatique ">
+    <h2><a href="energies-renouvlabes.html">La cybersécurité</a></h2>
+    <p>Date de publication: 29 juin 2023</p>
+    <p><i>Découvrez les enjeux cruciaux de la cybersécurité dans un monde de plus en plus connecté.</i></p>
   </div>
   
   <div id="articles"></div>
@@ -179,25 +241,60 @@
       <!-- Comment list will be dynamically populated -->
     </div>
     
-    
-    
+    <h3>Laissez un commentaire :</h3>
+    <form id="comment-form">
+      <input type="text" id="name-input" placeholder="Votre nom" required>
+      <textarea id="comment-input" placeholder="Votre commentaire" required></textarea>
+      <button type="submit">Publier</button>
+    </form>
   </div>
   
   <div class="footer">
     <p>© 2023 Journal. Tous droits réservés.</p>
   </div>
   
-
+  <script>
+    // Function to handle form submission
+    function submitComment(event) {
+      event.preventDefault();
+      
+      // Get input values
+      var name = document.getElementById('name-input').value;
+      var comment = document.getElementById('comment-input').value;
+      
+      // Create new comment element
+      var newComment = document.createElement('div');
+      newComment.className = 'comment';
+      newComment.innerHTML = '<h4>' + name + '</h4><p>' + comment + '</p>';
+      
+      // Append new comment to the comment list
+      var commentList = document.getElementById('comment-list');
+      commentList.appendChild(newComment);
+      
+      // Clear form inputs
+      document.getElementById('name-input').value = '';
+      document.getElementById('comment-input').value = '';
+    }
+    
+    // Add event listener to the comment form
+    var commentForm = document.getElementById('comment-form');
+    commentForm.addEventListener('submit', submitComment);
+    
+    // Function to filter articles by tag
+    function filterArticles(tag) {
+      var posts = document.getElementsByClassName('post');
+      for (var i = 0; i < posts.length; i++) {
+        var post = posts[i];
+        var tags = post.getAttribute('data-tags').split(' ');
+        
+        if (tag === 'all' || tags.includes(tag)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      }
+    }
+  </script>
   <br/>
-
-  <script src="https://utteranc.es/client.js"
-        repo="Clem-pnt/Code-news"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-
-  
 </body>
 </html>
