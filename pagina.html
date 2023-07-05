@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InstantInfos</title>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    
+    .navbar ul li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    .post {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+      margin-top: 50px;
+    }
+    
+    .post h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .post p {
+      line-height: 1.5;
+    }
+    
+    .presentation {
+      margin-bottom: 50px;
+    }
+    
+    .presentation h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .presentation p {
+      line-height: 1.5;
+      text-align: justify;
+    }
+    
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .footer p {
+      margin: 0;
+    }
+    
+    .tag-filter {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .tag-filter label {
+      margin-right: 10px;
+    }
+    
+    .comments {
+      margin-top: 50px;
+    }
+    
+    .comments h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .comments h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    #comment-list {
+      margin-bottom: 20px;
+    }
+    
+    .comment {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .comment h4 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+    
+    .comment p {
+      margin: 0;
+      font-size: 14px;
+    }
+    
+    #name-input,
+    #comment-input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    
+    #comment-input {
+      height: 80px;
+    }
+    
+    #comment-form button {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <ul>
+      <li><a href="#Inicio">Inicio</a></li>
+      <li><a href="#articulos">Artículos</a></li>
+      <li><select id="redirect-select" onchange="redirectToPage()">
+    <option value="pagina.html">español</option>
+   
+    <option value="page.html">français</option>
+    
+  </select>
+
+  <script>
+    function redirectToPage() {
+      var selectElement = document.getElementById("redirect-select");
+      var selectedOption = selectElement.value;
+      
+      if (selectedOption !== "") {
+        window.location.href = selectedOption;
+      }
+    }
+  </script></li>
+    </ul>
+    
+  </div>
+  
+  <div class="presentation">
+    <h2>Presentación del sitio web</h2>
+    <p>¡Bienvenido al sitio web de InstantInfos!
+<br/> <br/>
+<center>Nuestro periódico está dedicado a brindarte artículos interesantes e informativos sobre una variedad de temas. Ya sea que te apasione la política, la tecnología, la cultura o cualquier otro campo, aquí encontrarás una fuente confiable para satisfacer tu sed de conocimiento.
+
+Explora nuestros artículos y descubre historias fascinantes, análisis en profundidad y opiniones fundamentadas. Somos un equipo de apasionados que comparten contigo su amor por la escritura y la exploración de ideas.
+
+Ya sea que busques mantenerte al tanto de las últimas tendencias, profundizar en tu comprensión de un tema específico o simplemente entretenerte, nuestro periódico está aquí para acompañarte.
+
+Únete a nosotros en esta aventura de descubrimiento y compartición de información. Lee, reflexiona, comenta y participa en nuestra comunidad. ¡Tu voz cuenta!
+<br/>
+¡Gracias por visitar nuestro sitio web y disfruta de la lectura!</center>
+<br/><br/>
+La redacción.</p>
+  </div>
+  
+  <h1>Artículos</h1>
+  
+  <div class="tag-filter">
+    <label for="tag-filter">Filtrar por etiqueta:</label>
+    <select id="tag-filter" onchange="filterArticles(this.value)">
+      <option value="all">Todos</option>
+      <option value="informatique">Informática</option>
+      <option value="géopolitique">Geopolítica</option>
+      <option value="IA">Inteligencia Artificial</option>
+      <option value="politique">Política</option>
+      <option value="climat">Clima</option>
+      <option value="espace">Espacio</option>
+      <option value="societe">Sociedad</option>
+    </select>
+  </div>
+  
+  <div class="post" data-tags="géopolitique">
+    <h2><a href="guerra-Ucrania.html">La guerra en Ucrania</a></h2>
+    <p>Fecha de publicación: 1 de julio de 2023</p>
+    <p><i>Sumérgete en el corazón del conflicto en Ucrania y explora sus repercusiones.</i></p>
+  </div>
+  
+  <div class="post" data-tags="informatique IA">
+    <h2><a href="Inteligencia-artificial.html">La Inteligencia Artificial (IA)</a></h2>
+    <p>Fecha de publicación: 2 de julio de 2023</p>
+    <p> <i>Descubre los fascinantes avances de la Inteligencia Artificial y su impacto en nuestra sociedad.</i></p>
+  </div>
+  
+  <div class="post" data-tags="politique societe">
+    <h2><a href="Manifestaciones-reforma-pensiones-francia.html">Las manifestaciones por la reforma de las pensiones</a></h2>
+    <p>Fecha de publicación: 30 de junio de 2023</p>
+    <p><i>Sumérgete en los movimientos de protesta que sacuden el debate sobre la reforma de las pensiones.</i></p>
+  </div>
+  
+  <div class="post" data-tags="climat">
+    <h2><a href="Incendios-forestales-canada.html">Los incendios forestales en Canadá</a></h2>
+    <p>Fecha de publicación: 30 de junio de 2023</p>
+    <p><i>Explora los estragos de los terribles incendios forestales que asolan Canadá.</i></p>
+  </div>
+  
+  <div class="post" data-tags="informatique societe">
+    <h2><a href="Impacto-impresion-3D-manufacturera.html">El impacto de la realidad virtual en la educación</a></h2>
+    <p>Fecha de publicación: 30 de junio de 2023</p>
+    <p><i>Déjate sorprender por la influencia transformadora de la realidad virtual en el ámbito educativo.</i></p>
+  </div>
+  
+  <div class="post" data-tags="espace">
+    <h2><a href="exploracion-espacial.html">La exploración espacial</a></h2>
+    <p>Fecha de publicación: 29 de junio de 2023</p>
+    <p><i>Viaja a las estrellas y descubre los últimos avances en la exploración espacial.</i></p>
+  </div>
+  
+  <div class="post" data-tags="societe">
+    <h2><a href="impact-impression-3D-manufacture.html">El impacto de la impresión 3D en la industria manufacturera</a></h2>
+    <p>Fecha de publicación: 29 de junio de 2023</p>
+    <p><i>Sumérgete en la revolución de la impresión 3D y su impacto en la industria manufacturera.</i></p>
+  </div>
+  
+  <div class="post" data-tags="climat societe ">
+    <h2><a href="energia-renovable.html">Las energías renovables</a></h2>
+    <p>Fecha de publicación: 29 de junio de 2023</p>
+    <p><i>Explora las soluciones energéticas sostenibles que están dando forma a nuestro futuro.</i></p>
+  </div>
+  
+  <div class="post" data-tags="informatique ">
+    <h2><a href="ciberseguridad.html">La ciberseguridad</a></h2>
+    <p>Fecha de publicación: 29 de junio de 2023</p>
+    <p><i>Descubre los desafíos cruciales de la ciberseguridad en un mundo cada vez más conectado.</i></p>
+  </div>
+  
+  <div id="articles"></div>
+  
+  <div class="comments">
+    <h2>Comentarios</h2>
+    
+    <div id="comment-list">
+      <!-- La lista de comentarios se completará dinámicamente -->
+    </div>
+    
+    <h3>Deja un comentario :</h3>
+    
+  
+  <div class="footer">
+    <p>© 2023 Journal. Todos los derechos reservados.</p>
+  </div>
+  
+  <script src="https://utteranc.es/client.js"
+        repo="clem.pnt/InstantInfos"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  <br/>
+</body>
+</html>
+

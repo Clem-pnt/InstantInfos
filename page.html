@@ -1,7 +1,7 @@
 <!DOCTYPE html>       
 <html>
 <head>
-  <title>Journal</title>
+  <title>Instantinfos</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -154,7 +154,25 @@
     <ul>
       <li><a href="#Accueil">Accueil</a></li>
       <li><a href="#articles">Articles</a></li>
+      <li><select id="redirect-select" onchange="redirectToPage()">
+    <option value="page.html">français</option>
+   
+    <option value="pagina.html">español</option>
+    
+  </select>
+
+  <script>
+    function redirectToPage() {
+      var selectElement = document.getElementById("redirect-select");
+      var selectedOption = selectElement.value;
+      
+      if (selectedOption !== "") {
+        window.location.href = selectedOption;
+      }
+    }
+  </script></li>
     </ul>
+    
   </div>
   
   <div class="presentation">
@@ -249,7 +267,9 @@ La rédaction.</p>
   <div class="comments">
     <h2>Commentaires</h2>
     
-   
+    <div id="comment-list">
+      <!-- Comment list will be dynamically populated -->
+    </div>
     
     <h3>Laissez un commentaire :</h3>
     
@@ -259,7 +279,7 @@ La rédaction.</p>
   </div>
   
   <script src="https://utteranc.es/client.js"
-        repo="Clem-pnt/InstantInfos"
+        repo="clem.pnt/InstantInfos"
         issue-term="pathname"
         theme="github-light"
         crossorigin="anonymous"
