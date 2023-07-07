@@ -1,4 +1,4 @@
-<!DOCTYPE html>       
+<!DOCTYPE html>
 <html>
 <head>
   <title>Instantinfos</title>
@@ -154,80 +154,69 @@
     <ul>
       <li><a href="#Accueil">Accueil</a></li>
       <li><a href="#articles">Articles</a></li>
-      <li><select id="redirect-select" onchange="redirectToPage()">
-    <option value="page.html">français</option>
-   
-    <option value="pagina.html">español</option>
-    
-  </select>
-
-  <script>
-    function redirectToPage() {
-      var selectElement = document.getElementById("redirect-select");
-      var selectedOption = selectElement.value;
-      
-      if (selectedOption !== "") {
-        window.location.href = selectedOption;
-      }
-    }
-  </script></li>
+      <li>
+        <select id="redirect-select" onchange="redirectToPage()">
+          <option value="page.html">français</option>
+          <option value="pagina.html">español</option>
+        </select>
+      </li>
     </ul>
-    
   </div>
-  
+
   <div class="presentation">
     <h2>Présentation de la page web</h2>
     <p>Bienvenue sur le site web d'InstantInfos !
-<br/> <br/>
-<center>Notre journal est dédié à vous fournir des articles intéressants et informatifs sur une variété de sujets. Que vous soyez passionné par la politique, la technologie, la culture ou tout autre domaine, vous trouverez ici une source fiable pour satisfaire votre soif de connaissances.
+      <br/><br/>
+      <center>Notre journal est dédié à vous fournir des articles intéressants et informatifs sur une variété de sujets. Que vous soyez passionné par la politique, la technologie, la culture ou tout autre domaine, vous trouverez ici une source fiable pour satisfaire votre soif de connaissances.
 
-Explorez nos articles et découvrez des histoires fascinantes, des analyses approfondies et des opinions éclairées. Nous sommes une équipe de passionnés qui partagent avec vous leur amour pour l'écriture et l'exploration des idées.
+      Explorez nos articles et découvrez des histoires fascinantes, des analyses approfondies et des opinions éclairées. Nous sommes une équipe de passionnés qui partagent avec vous leur amour pour l'écriture et l'exploration des idées.
 
-Que vous cherchiez à vous tenir au courant des dernières tendances, à approfondir votre compréhension d'un sujet spécifique ou simplement à vous divertir, notre journal est là pour vous accompagner.
+      Que vous cherchiez à vous tenir au courant des dernières tendances, à approfondir votre compréhension d'un sujet spécifique ou simplement à vous divertir, notre journal est là pour vous accompagner.
 
-Rejoignez-nous dans cette aventure de découverte et de partage d'informations. Lisez, réfléchissez, commentez et participez à notre communauté. Votre voix compte !
-<br/>
-Merci de visiter notre page web et bonne lecture !</center>
-<br/><br/>
-La rédaction.</p>
+      Rejoignez-nous dans cette aventure de découverte et de partage d'informations. Lisez, réfléchissez, commentez et participez à notre communauté. Votre voix compte !
+      <br/>
+      Merci de visiter notre page web et bonne lecture !</center>
+      <br/><br/>
+      La rédaction.
+    </p>
   </div>
-  
+
   <h1>Les articles</h1>
-  
+
   <div class="tag-filter">
     <label for="tag-filter">Filtrer par tag :</label>
     <select id="tag-filter" onchange="filterArticles(this.value)">
       <option value="all">Tous</option>
-      <option value="informatique">informatique</option>
+      <option value="informatique">Informatique</option>
       <option value="géopolitique">Géopolitique</option>
       <option value="IA">IA</option>
-      <option value="politique">politique</option>
-      <option value="climat">climat</option>
-      <option value="espace">espace</option>
-      <option value="societe">société</option>
+      <option value="politique">Politique</option>
+      <option value="climat">Climat</option>
+      <option value="espace">Espace</option>
+      <option value="societe">Société</option>
     </select>
   </div>
-  
+
   <div class="post" data-tags="géopolitique">
     <h2><a href="guerre-ukraine.html">La guerre en Ukraine</a></h2>
     <p>Date de publication: 1er juillet 2023</p>
     <p><i>Plongez au cœur du conflit en Ukraine et explorez ses répercussions.</i></p>
   </div>
-  
+
   <div class="post" data-tags="informatique IA">
     <h2><a href="intelligence-artificielle.html">L'Intelligence Artificielle (IA)</a></h2>
     <p>Date de publication: 2 juillet 2023</p>
-    <p> <i>Découvrez les avancées fascinantes de l'Intelligence Artificielle et son impact sur notre sociétés.</i></p>
+    <p> <i>Découvrez les avancées fascinantes de l'Intelligence Artificielle et son impact sur notre société.</i></p>
   </div>
-  
-  <div class="post" data-tags="politique societe">
+
+ <div class="post" data-tags="politique societe">
     <h2><a href="journal/articles/manifestations-reforme-retraites.html">Les manifestations pour la réforme des retraites</a></h2>
     <p>Date de publication: 30 juin 2023</p>
     <p><i>Plongez dans les mouvements de protestation qui secouent le débat sur la réforme des retraites.</i></p>
   </div>
   
   <div class="post" data-tags="climat">
-    <h2><a href="feux-foret-canada.html">Les feux de fôret au Canada</a></h2>
+    <h2><a href="feux-foret-canada.html">Les feux de forêt au Canada</a></h2>
     <p>Date de publication: 30 juin 2023</p>
     <p><i>Explorez les ravages des terribles incendies de forêt qui font rage au Canada.</i></p>
   </div>
@@ -250,20 +239,18 @@ La rédaction.</p>
     <p><i>Plongez dans la révolution de l'impression 3D et son impact sur l'industrie manufacturière.</i></p>
   </div>
   
-  <div class="post" data-tags="climat societe ">
-    <h2><a href="energies-renouvelabes.html">Les énergies renouvlabes</a></h2>
+  <div class="post" data-tags="climat societe">
+    <h2><a href="energies-renouvelables.html">Les énergies renouvelables</a></h2>
     <p>Date de publication: 29 juin 2023</p>
     <p><i>Explorez les solutions énergétiques durables qui façonnent notre avenir.</i></p>
   </div>
   
-  <div class="post" data-tags="informatique ">
+  <div class="post" data-tags="informatique">
     <h2><a href="cybersecurite.html">La cybersécurité</a></h2>
     <p>Date de publication: 29 juin 2023</p>
     <p><i>Découvrez les enjeux cruciaux de la cybersécurité dans un monde de plus en plus connecté.</i></p>
   </div>
-  
-  <div id="articles"></div>
-  
+
   <div class="comments">
     <h2>Commentaires</h2>
     
@@ -272,20 +259,40 @@ La rédaction.</p>
     </div>
     
     <h3>Laissez un commentaire :</h3>
-    
-  
+    <form id="comment-form">
+      <input type="text" id="name-input" placeholder="Votre nom">
+      <textarea id="comment-input" placeholder="Votre commentaire"></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
   <div class="footer">
     <p>© 2023 Journal. Tous droits réservés.</p>
   </div>
-  
-  <script src="https://utteranc.es/client.js"
-        repo="clem-pnt/InstantInfos"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
 
-  <br/>
+  <script>
+    function redirectToPage() {
+      var selectElement = document.getElementById("redirect-select");
+      var selectedOption = selectElement.value;
+      
+      if (selectedOption !== "") {
+        window.location.href = selectedOption;
+      }
+    }
+
+    function filterArticles(tag) {
+      var posts = document.getElementsByClassName("post");
+
+      for (var i = 0; i < posts.length; i++) {
+        var post = posts[i];
+
+        if (tag === "all" || post.getAttribute("data-tags").includes(tag)) {
+          post.style.display = "block";
+        } else {
+          post.style.display = "none";
+        }
+      }
+    }
+  </script>
 </body>
 </html>
